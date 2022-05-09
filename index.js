@@ -8,6 +8,7 @@ try {
   const jiraToken = core.getInput('jira-token')
   const baseURL = core.getInput('jira-url')
   const email = core.getInput('jira-email')
+  const header = core.getInput('comment-header')
   const vercelRegExp = changedComment.match(/review.+(https?\S+\.vercel\.app)/)
   const jiraRegExp = prBody.match(/(https?:\/\/freewheelin\.atlassian\.net\/browse\/(\S+\-[0-9]+))/)
 
@@ -27,7 +28,7 @@ try {
               "type": "paragraph",
               "content": [
                 {
-                  "text": "preview url : ${vercelUrl}",
+                  "text": "${header} : ${vercelUrl}",
                   "type": "text"
                 }
               ]
