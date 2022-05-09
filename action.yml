@@ -14,9 +14,20 @@ inputs:
     description: 'jira comment header'
     required: false
     default: 'Preview Url'
+# runs:
+#   using: 'node16'
+#   pre: 'npm install'
+#   main: 'dist/index.js'
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "composite"
+  steps:
+    - name: check out
+      uses: actions/checkout@v3
+    # nodejs 사용함
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+    - name: 'start'
+      uses: 'dist/index.js'
 branding:
   icon: 'check-circle'
   color: 'blue'
