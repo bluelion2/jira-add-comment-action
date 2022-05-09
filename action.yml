@@ -16,7 +16,6 @@ inputs:
     default: 'Preview Url'
 runs:
   using: 'node16'
-  pre: 'npm install'
   main: 'dist/index.js'
 branding:
   icon: 'check-circle'
