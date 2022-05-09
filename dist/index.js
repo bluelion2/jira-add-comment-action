@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 450:
+/***/ 105:
 /***/ ((module) => {
 
 module.exports = eval("require")("@actions/core");
@@ -9,7 +9,7 @@ module.exports = eval("require")("@actions/core");
 
 /***/ }),
 
-/***/ 177:
+/***/ 82:
 /***/ ((module) => {
 
 module.exports = eval("require")("@actions/github");
@@ -17,7 +17,7 @@ module.exports = eval("require")("@actions/github");
 
 /***/ }),
 
-/***/ 645:
+/***/ 512:
 /***/ ((module) => {
 
 module.exports = eval("require")("axios");
@@ -66,15 +66,16 @@ module.exports = eval("require")("axios");
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const core = __nccwpck_require__(450)
-const github = __nccwpck_require__(177)
-const axios = __nccwpck_require__(645)
+const core = __nccwpck_require__(105)
+const github = __nccwpck_require__(82)
+const axios = __nccwpck_require__(512)
 
 try {
   const changedComment = github.context.payload.comment.body
   const prBody = github.context.payload.issue.body
   const jiraToken = core.getInput('jira-token')
   const baseURL = core.getInput('jira-url')
+  const email = core.getInput('jira-email')
   const vercelRegExp = changedComment.match(/review.+(https?\S+\.vercel\.app)/)
   const jiraRegExp = prBody.match(/(https?:\/\/freewheelin\.atlassian\.net\/browse\/(\S+\-[0-9]+))/)
 
@@ -83,7 +84,7 @@ try {
     const [, jiraUrl, issueKey] = jiraRegExp
 
     if (vercelUrl && jiraUrl) {
-      const auth = `Basic ${Buffer.from(`dev@mathflat.com:${jiraToken}`).toString('base64')}`
+      const auth = `Basic ${Buffer.from(`${email}:${jiraToken}`).toString('base64')}`
 
       const body = `{
         "body": {
