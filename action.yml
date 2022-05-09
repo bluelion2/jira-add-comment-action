@@ -21,7 +21,8 @@ runs:
       uses: actions/checkout@v3
     - name: Setup node
       uses: actions/setup-node@v3
-      run: npm install
+    - run: npm install
+      shell: bash
     - uses: './dist/index.js'
 branding:
   icon: 'check-circle'
