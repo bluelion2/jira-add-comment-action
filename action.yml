@@ -17,12 +17,14 @@ inputs:
 runs: 
   using: composite
   steps:
-    - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
     - run: npm install
       shell: bash
     - name: node check
       run: node -v
+      shell: bash
+    - uses: actions/checkout@v3
+    - run: ls -al
       shell: bash
     - uses: './index.js'
 branding:
