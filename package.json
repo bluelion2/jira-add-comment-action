@@ -1,5 +1,5 @@
 {
-  "name": "Jira add cooment action",
+  "name": "jira_add_cooment_action",
   "version": "1",
   "private": false,
   "dependencies": {

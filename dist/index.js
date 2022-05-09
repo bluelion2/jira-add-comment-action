@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 105:
+/***/ 450:
 /***/ ((module) => {
 
 module.exports = eval("require")("@actions/core");
@@ -9,7 +9,7 @@ module.exports = eval("require")("@actions/core");
 
 /***/ }),
 
-/***/ 82:
+/***/ 177:
 /***/ ((module) => {
 
 module.exports = eval("require")("@actions/github");
@@ -17,7 +17,7 @@ module.exports = eval("require")("@actions/github");
 
 /***/ }),
 
-/***/ 512:
+/***/ 645:
 /***/ ((module) => {
 
 module.exports = eval("require")("axios");
@@ -66,9 +66,9 @@ module.exports = eval("require")("axios");
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const core = __nccwpck_require__(105)
-const github = __nccwpck_require__(82)
-const axios = __nccwpck_require__(512)
+const core = __nccwpck_require__(450)
+const github = __nccwpck_require__(177)
+const axios = __nccwpck_require__(645)
 
 try {
   const changedComment = github.context.payload.comment.body
@@ -76,6 +76,7 @@ try {
   const jiraToken = core.getInput('jira-token')
   const baseURL = core.getInput('jira-url')
   const email = core.getInput('jira-email')
+  const header = core.getInput('comment-header')
   const vercelRegExp = changedComment.match(/review.+(https?\S+\.vercel\.app)/)
   const jiraRegExp = prBody.match(/(https?:\/\/freewheelin\.atlassian\.net\/browse\/(\S+\-[0-9]+))/)
 
@@ -92,11 +93,15 @@ try {
           "version": 1,
           "content": [
             {
-              "type": "paragraph",
-              "content": [
+              "type": "text",
+              "text": "${header}",
+              "marks": [
                 {
-                  "text": "preview url : ${vercelUrl}",
-                  "type": "text"
+                  "type": "link",
+                  "attrs": {
+                    "href": "${vercelUrl}",
+                    "title": "${header}"
+                  }
                 }
               ]
             }
