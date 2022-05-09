@@ -1,5 +1,5 @@
-name: jira add comment
-description: 'jira add comment'
+name: jira issue add comment by vercel deployed
+description: 'jira issue add comment by vercel deployed'
 inputs:
   jira-token: 
     description: 'jira api token'
