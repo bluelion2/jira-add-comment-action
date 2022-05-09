@@ -1,6 +1,6 @@
 # Jira add comment actions
 
-- Vercel 빌드가 완료되었을 때, 연관된 Jira issue에 댓글을 달아주는 action 입니다.
+- 연관된 Jira issue에 댓글을 달아주는 action 입니다.
 
 <br/>
 
