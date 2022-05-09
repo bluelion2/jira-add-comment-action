@@ -21,7 +21,8 @@ runs:
     - uses: actions/setup-node@v3
     - run: npm install
       shell: bash
-    - run: echo node -v
+    - name: node check
+      run: node -v
       shell: bash
     - uses: './index.js'
 branding:
