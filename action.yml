@@ -23,7 +23,7 @@ runs:
       shell: bash
     - run: echo node -v
       shell: bash
-    - uses: './dist/index.js'
+    - uses: './index.js'
 branding:
   icon: 'check-circle'
   color: 'blue'
