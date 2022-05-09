@@ -25,11 +25,15 @@ try {
           "version": 1,
           "content": [
             {
-              "type": "paragraph",
-              "content": [
+              "type": "text",
+              "text": "${header}",
+              "marks": [
                 {
-                  "text": "${header} : ${vercelUrl}",
-                  "type": "text"
+                  "type": "link",
+                  "attrs": {
+                    "href": "${vercelUrl}",
+                    "title": "${header}"
+                  }
                 }
               ]
             }
