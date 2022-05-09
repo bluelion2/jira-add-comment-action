@@ -8,6 +8,6 @@
     "axios": "^0.24.0"
   },
   "scripts": {
-    "build": "npx ncc build index.js"
+    "build": "rm -rf dist && npx ncc build index.js"
   }
 }
